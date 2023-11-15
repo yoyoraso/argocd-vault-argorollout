@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app.kubernetes.io/component":"dex-server","app.kubernetes.io/name":"argocd-dex-server","app.kubernetes.io/part-of":"argocd"},"name":"argocd-dex-server","namespace":"argocd"},"spec":{"ports":[{"appProtocol":"TCP","name":"http","port":5556,"protocol":"TCP","targetPort":5556},{"name":"grpc","port":5557,"protocol":"TCP","targetPort":5557},{"name":"metrics","port":5558,"protocol":"TCP","targetPort":5558}],"selector":{"app.kubernetes.io/name":"argocd-dex-server"}}}
+  creationTimestamp: "2023-11-07T19:26:03Z"
+  labels:
+    app.kubernetes.io/component: dex-server
+    app.kubernetes.io/name: argocd-dex-server
+    app.kubernetes.io/part-of: argocd
+  name: argocd-dex-server
+  namespace: argocd
+  resourceVersion: "193265"
+  uid: d7cd66f6-816f-4ef9-bafd-633e52a7266f
+spec:
+  clusterIP: 10.110.213.228
+  clusterIPs:
+  - 10.110.213.228
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - appProtocol: TCP
+    name: http
+    port: 5556
+    protocol: TCP
+    targetPort: 5556
+  - name: grpc
+    port: 5557
+    protocol: TCP
+    targetPort: 5557
+  - name: metrics
+    port: 5558
+    protocol: TCP
+    targetPort: 5558
+  selector:
+    app.kubernetes.io/name: argocd-dex-server
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

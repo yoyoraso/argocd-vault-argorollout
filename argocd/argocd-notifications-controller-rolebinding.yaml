@@ -1,0 +1,22 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"RoleBinding","metadata":{"annotations":{},"labels":{"app.kubernetes.io/component":"notifications-controller","app.kubernetes.io/name":"argocd-notifications-controller","app.kubernetes.io/part-of":"argocd"},"name":"argocd-notifications-controller","namespace":"argocd"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"Role","name":"argocd-notifications-controller"},"subjects":[{"kind":"ServiceAccount","name":"argocd-notifications-controller"}]}
+  creationTimestamp: "2023-11-07T19:26:03Z"
+  labels:
+    app.kubernetes.io/component: notifications-controller
+    app.kubernetes.io/name: argocd-notifications-controller
+    app.kubernetes.io/part-of: argocd
+  name: argocd-notifications-controller
+  namespace: argocd
+  resourceVersion: "193249"
+  uid: 85f80556-7be7-4567-85f7-78c35627ae35
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: argocd-notifications-controller
+subjects:
+- kind: ServiceAccount
+  name: argocd-notifications-controller

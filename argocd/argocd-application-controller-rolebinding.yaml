@@ -1,0 +1,22 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"RoleBinding","metadata":{"annotations":{},"labels":{"app.kubernetes.io/component":"application-controller","app.kubernetes.io/name":"argocd-application-controller","app.kubernetes.io/part-of":"argocd"},"name":"argocd-application-controller","namespace":"argocd"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"Role","name":"argocd-application-controller"},"subjects":[{"kind":"ServiceAccount","name":"argocd-application-controller"}]}
+  creationTimestamp: "2023-11-07T19:26:03Z"
+  labels:
+    app.kubernetes.io/component: application-controller
+    app.kubernetes.io/name: argocd-application-controller
+    app.kubernetes.io/part-of: argocd
+  name: argocd-application-controller
+  namespace: argocd
+  resourceVersion: "193246"
+  uid: 18d7c1a3-3ce6-4343-bda3-f5e211f9c432
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: argocd-application-controller
+subjects:
+- kind: ServiceAccount
+  name: argocd-application-controller

@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app.kubernetes.io/component":"server","app.kubernetes.io/name":"argo-rollouts-metrics","app.kubernetes.io/part-of":"argo-rollouts"},"name":"argo-rollouts-metrics","namespace":"argocd"},"spec":{"ports":[{"name":"metrics","port":8090,"protocol":"TCP","targetPort":8090}],"selector":{"app.kubernetes.io/name":"argo-rollouts"}}}
+  creationTimestamp: "2023-11-14T17:28:43Z"
+  labels:
+    app.kubernetes.io/component: server
+    app.kubernetes.io/name: argo-rollouts-metrics
+    app.kubernetes.io/part-of: argo-rollouts
+  name: argo-rollouts-metrics
+  namespace: argocd
+  resourceVersion: "328316"
+  uid: 5613221b-6be6-4b9b-8bf4-ad735c784b81
+spec:
+  clusterIP: 10.103.147.176
+  clusterIPs:
+  - 10.103.147.176
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: metrics
+    port: 8090
+    protocol: TCP
+    targetPort: 8090
+  selector:
+    app.kubernetes.io/name: argo-rollouts
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

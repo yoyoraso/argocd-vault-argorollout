@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: "2023-11-07T18:53:31Z"
+  name: argocd-manager
+  namespace: argocd
+  resourceVersion: "188971"
+  uid: e106ce03-5b68-4805-9a18-ce7f42935372

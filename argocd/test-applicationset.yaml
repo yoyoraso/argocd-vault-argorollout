@@ -1,0 +1,58 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"argoproj.io/v1alpha1","kind":"ApplicationSet","metadata":{"annotations":{},"name":"test-applicationset","namespace":"argocd"},"spec":{"generators":[{"git":{"directories":[{"path":"configs/*"}],"repoURL":"https://github.com/yoyoraso/helm-configurations","revision":"HEAD"}}],"template":{"metadata":{"annotations":{"argocd.argoproj.io/manifest-generate-paths":"/configs/{{path.basename}}/test","argocd.argoproj.io/sync-options":"Prune=true"},"name":"{{path.basename}}-test","namespace":"argocd"},"spec":{"destination":{"namespace":"test","server":"https://kubernetes.default.svc"},"project":"test","source":{"path":".","plugin":{"env":[{"name":"helm_args","value":"-f configs/{{path.basename}}/values.yaml -f configs/{{path.basename}}/test/values.yaml --set ms_dir={{path.basename}}"}],"name":"argocd-vault-plugin-helm"},"repoURL":"https://github.com/yoyoraso/helm-configurations","targetRevision":"HEAD"}}}}}
+  creationTimestamp: "2023-11-14T17:01:22Z"
+  generation: 2
+  name: test-applicationset
+  namespace: argocd
+  resourceVersion: "323885"
+  uid: 8d8dac5d-ab14-4b16-b40f-104f7063650d
+spec:
+  generators:
+  - git:
+      directories:
+      - path: configs/*
+      repoURL: https://github.com/yoyoraso/helm-configurations
+      revision: HEAD
+  template:
+    metadata:
+      annotations:
+        argocd.argoproj.io/manifest-generate-paths: /configs/{{path.basename}}/test
+        argocd.argoproj.io/sync-options: Prune=true
+      name: '{{path.basename}}-test'
+      namespace: argocd
+    spec:
+      destination:
+        namespace: test
+        server: https://kubernetes.default.svc
+      project: test
+      source:
+        path: .
+        plugin:
+          env:
+          - name: helm_args
+            value: -f configs/{{path.basename}}/values.yaml -f configs/{{path.basename}}/test/values.yaml
+              --set ms_dir={{path.basename}}
+          name: argocd-vault-plugin-helm
+        repoURL: https://github.com/yoyoraso/helm-configurations
+        targetRevision: HEAD
+status:
+  conditions:
+  - lastTransitionTime: "2023-11-14T17:02:01Z"
+    message: Successfully generated parameters for all Applications
+    reason: ApplicationSetUpToDate
+    status: "False"
+    type: ErrorOccurred
+  - lastTransitionTime: "2023-11-14T17:01:25Z"
+    message: Successfully generated parameters for all Applications
+    reason: ParametersGenerated
+    status: "True"
+    type: ParametersGenerated
+  - lastTransitionTime: "2023-11-14T17:02:01Z"
+    message: ApplicationSet up to date
+    reason: ApplicationSetUpToDate
+    status: "True"
+    type: ResourcesUpToDate
